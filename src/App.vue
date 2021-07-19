@@ -1,32 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <el-row>
+      <el-button>默认按钮</el-button>
+      <el-button type="primary">主要按钮</el-button>
+      <el-button type="success">成功按钮</el-button>
+      <el-button type="info">信息按钮</el-button>
+      <el-button type="warning">警告按钮</el-button>
+      <el-button type="danger">危险按钮</el-button>
+    </el-row>
+    <p class="text">hello world asdfasfasdfasfasdf</p>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from 'vue'
+import request from '@/utils/request'
 
-#nav {
-  padding: 30px;
+request.get('/boss/v2/api-docs?group=edu-boss-boot').then(res => console.log(res))
+// import Component from 'vue-class-component'
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+// @Component
+// export default class App extends Vue {
+//   a = 1
+//   b = 2
+// }
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+export default Vue.extend({
+	data() {
+		return {}
+	},
+
+	methods: {}
+})
+</script>
+
+<style lang="scss" scoped>
+.text {
+	color: $success-color;
 }
 </style>
